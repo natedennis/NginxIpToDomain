@@ -14,7 +14,7 @@
 
 
 
-function highlightGoodComments (jNode) {
+function updateNginxStatusPage (jNode) {
 
     'use strict';
 
@@ -31,7 +31,7 @@ function highlightGoodComments (jNode) {
 
         GM_xmlhttpRequest({
             method: "GET",
-            url: "http://ndennis.empoweredbenefits.com:10081/ptr?ip="+ipp[0],
+            url: "http://localhost:10081/ptr?ip="+ipp[0],
             onload: function (response) {
 //                console.log(JSON.parse(response.responseText));
                 span.text(JSON.parse(response.responseText)[0]);
@@ -44,7 +44,7 @@ function highlightGoodComments (jNode) {
 
     }
 }
-waitForKeyElements (".table__td_upstream_name span", highlightGoodComments);
+waitForKeyElements (".table__td_upstream_name span", updateNginxStatusPage);
 
 /*--- waitForKeyElements():  A utility function, for Greasemonkey scripts,
     that detects and handles AJAXed content.
